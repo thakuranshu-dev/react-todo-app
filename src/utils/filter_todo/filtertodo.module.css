@@ -1,0 +1,17 @@
+.filterBar{
+  display: inline;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+}
+.selectFilter{
+  height: 100%;
+  width: 100%;
+  outline: 2px solid seagreen;
+  border: none;
+  border-radius: 4px;
+  padding-inline: 5px;
+}
+.selectFilter:focus{
+  outline: 2px solid aquamarine;
+}

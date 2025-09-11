@@ -1,0 +1,98 @@
+.todocard{
+  display: block;
+  width: 300px;
+  min-height: 130px;
+  border-radius: 8px;
+  margin: auto;
+  padding: 12px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(58, 58, 58, 0.1); */
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.todoHeader{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  width: 100%;
+}
+
+.todoSr{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.actionBtnGroup{
+  display: inline-flex;
+  gap: 4px;
+}
+
+.actionBtn{
+  border:none;
+  border-radius:6px; 
+  cursor:pointer; 
+  padding:2px 6px; 
+  font-size:.8rem; 
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.todoContent{
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 400;
+}
+.TodoFooter{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  width: 100%;
+}
+.todoPriority{
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+}
+.checkBox{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-color);
+}
+
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4caf50;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 3px;
+}

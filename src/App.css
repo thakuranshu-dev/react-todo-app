@@ -1,0 +1,33 @@
+:root {
+  --card-bg: #212121da;
+  --primary: #f0f0f0;
+  --accent-color: #ff4d4d;
+}
+[data-theme="light"] {
+  --bg: white;
+  --card-bg: #f0f0f0;
+  --primary: #1e1e1e;
+  --accent-color: #ff4d4d;
+}
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  display: block;
+  background-color: transparent;
+}
+.mainContainer{
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: var(--card-bg);
+}
+.col_1{
+  width: 350px;
+}
+.col_2{
+  width: calc(100% - 350px);
+  overflow-y: scroll;
+}
