@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './filtertodo.module.css';
 function FilterTodo({setFilter}){
-  const filters = ['High', 'Low', 'Medium']
+  const filters = ['High', 'Low', 'Medium', 'Completed']
   const [_filter, set_filter] = useState('');
 
   useEffect(() => setFilter(_filter),[_filter]);

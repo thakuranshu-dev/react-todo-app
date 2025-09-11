@@ -39,7 +39,10 @@ function TodoList( {todos, setTodos}){
 
     // Apply filter
     if (filters && filters !== "All") {
-      filtered = filtered.filter(todo => todo.priority === filters);
+      if(['High','Medium','Low'].includes(filters))
+        filtered = filtered.filter(todo => todo.priority === filters);
+      else if (filters === "Completed")
+        filtered = filtered.filter(todo => todo.status === 0);
     }
 
     // Apply search

@@ -8,6 +8,7 @@ function App() {
   const [editTodo, setEditTodo] = useState(null);
   const [editableIdx, setEditableIdx] = useState(null);
   const [theme, setTheme] = useState('dark');
+  const [showCreate, setShowCreate] = useState(true);
 
   useEffect(()=>{
     const savedTodos = JSON.parse(localStorage.getItem('todos'));
@@ -37,6 +38,13 @@ function App() {
   return (
     <>
       <h1>React To-Do App</h1>
+      <button
+      onClick={() => setShowCreate(prev => !prev)}
+      className="toggleCreateBtn"
+      >
+        {showCreate ? "Hide Editor" : "Show Editor"}
+      </button>
+
       <div className='themeSelector'>
         <select name="theme" id="theme" value={theme} onChange={(e)=>setTheme(e.target.value)}>
           <option value="dark">Dark</option>
@@ -44,6 +52,7 @@ function App() {
         </select>
       </div>
       <div className="mainContainer">
+        {showCreate && 
         <div className="col_1">
           <TodoCreate 
           editTodo={editTodo}
@@ -52,8 +61,9 @@ function App() {
           setTodos={setTodos} 
           setEditTodo={setEditTodo}
           setEditableIdx={setEditableIdx}/>
-        </div>
-        <div className="col_2">
+        </div>}
+        <div className="col_2"
+        style={!showCreate?{width:"100%"}:{width:"calc(100% - 350px)"}}>
           <TodoList todos={todos} setTodos={setTodos}/>
         </div>
       </div>

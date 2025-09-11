@@ -10,27 +10,28 @@ function TodoCreate({editTodo,editableIdx, todos, setTodos, setEditTodo, setEdit
       window.alert("Type something in textBox and then try saving again...")
     else if(priority === '')
       window.alert("Set a proirity and then try saving again...")
-    
-    const now = new Date();
-    const todo = {
-      content: content,
-      priority: priority,
-      status: 1,
-      createdAt: now,
+    else{
+      const now = new Date();
+      const todo = {
+        content: content,
+        priority: priority,
+        status: 1,
+        createdAt: now,
+      }
+
+      let updatedTodos;
+
+      if (editableIdx != null && editableIdx >= 0) {
+        updatedTodos = [...todos];
+        updatedTodos[editableIdx] = todo;
+      } else {
+        updatedTodos = [...todos, todo];
+      }
+
+      setTodos(updatedTodos);
+      setEditTodo(null); // reset edit mode
+      setEditableIdx(null);
     }
-
-    let updatedTodos;
-
-    if (editableIdx != null && editableIdx >= 0) {
-      updatedTodos = [...todos];
-      updatedTodos[editableIdx] = todo;
-    } else {
-      updatedTodos = [...todos, todo];
-    }
-
-    setTodos(updatedTodos);
-    setEditTodo(null); // reset edit mode
-    setEditableIdx(null);
     // localStorage.setItem("todos", JSON.stringify(updatedTodos));
   }
 
