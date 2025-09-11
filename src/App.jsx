@@ -64,7 +64,10 @@ function App() {
         </div>}
         <div className="col_2"
         style={!showCreate?{width:"100%"}:{width:"calc(100% - 350px)"}}>
-          <TodoList todos={todos} setTodos={setTodos}/>
+          {Array.isArray(todos) && todos.length > 0 ?
+            <TodoList todos={todos} setTodos={setTodos}/> :
+            <p>No Todos saved</p>
+          }
         </div>
       </div>
       <tt>

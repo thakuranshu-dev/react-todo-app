@@ -25,14 +25,16 @@ function TodoCreate({editTodo,editableIdx, todos, setTodos, setEditTodo, setEdit
         updatedTodos = [...todos];
         updatedTodos[editableIdx] = todo;
       } else {
-        updatedTodos = [...todos, todo];
+        if(Array.isArray(todos) && todos.length>0)
+          updatedTodos = [...todos, todo];
+        else
+          updatedTodos = [todo,]
       }
 
       setTodos(updatedTodos);
       setEditTodo(null); // reset edit mode
       setEditableIdx(null);
     }
-    // localStorage.setItem("todos", JSON.stringify(updatedTodos));
   }
 
   useEffect(() => {
