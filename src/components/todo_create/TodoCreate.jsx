@@ -43,7 +43,7 @@ function TodoCreate({editTodo,editableIdx, todos, setTodos, setEditTodo, setEdit
   return(
     <div className={styles.inputWrapper}>
       <form className={styles.newForm}>
-        <textarea 
+        <textarea placeholder="Enter task here..."
         className={styles.todoContent}
         value={content}
         onChange={(e)=>setContent(e.target.value)}

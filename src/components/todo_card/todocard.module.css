@@ -1,3 +1,24 @@
+:root {
+  --bg: #0b1020;
+  --panel: #121833;
+  --muted: #7681a1;
+  --text: #eef2ff;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --ring: rgba(124, 58, 237, 0.55);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+[data-theme="light"] {
+  --bg:#f7f8fb; 
+  --panel:#ffffff; 
+  --muted:#64748b; 
+  --text:#0b1020;
+  --accent:#2563eb; 
+  --accent-2:#db2777; 
+  --ring:rgba(37,99,235,.35); 
+  --shadow: 0 2px 2px rgba(0,0,0,.35);
+}
+
 .todocard{
   display: block;
   width: 300px;
@@ -6,10 +27,9 @@
   margin: auto;
   padding: 12px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  /* background-color: rgba(58, 58, 58, 0.1); */
-  background-color: var(--card-bg);
-  color: var(--text-color);
+  box-shadow: var(--shadow);
+  background-color: var(--panel);
+  color: var(--text);
 }
 
 .todoHeader{
@@ -23,7 +43,7 @@
 .todoSr{
   font-size: 16px;
   font-weight: 500;
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
 .actionBtnGroup{

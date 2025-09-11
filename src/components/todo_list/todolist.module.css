@@ -10,7 +10,7 @@
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  padding:2px 0;
+  padding:20px 0 2px 0;
 }
 
 .todolist{

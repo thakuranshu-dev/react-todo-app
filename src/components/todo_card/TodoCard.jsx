@@ -4,8 +4,7 @@ function TodoCard({sr, todo, onEdit, handleDelete, onChecked}){
   const onDelete = ()=> handleDelete(sr);
 
   return(
-    <div className={styles.todocard}
-    style={{backgroundColor:"#8d7f7fff"}}>
+    <div className={styles.todocard}>
 
       <div className={styles.todoHeader}>
 

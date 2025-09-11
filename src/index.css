@@ -7,41 +7,10 @@
   -moz-osx-font-smoothing: grayscale;
   
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  --bg: #0b1020;
-  --panel: #121833;
-  --muted: #7681a1;
-  --text: #eef2ff;
-  --accent: #7c3aed;
-  --accent-2: #06b6d4;
-  --ring: rgba(124, 58, 237, 0.55);
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-
-  --card-bg: #ffffff;
-  --text-color: #1a1a1a;
-  --accent-color: #ef4444;
-}
-.theme-light { 
-  --bg:#f7f8fb; 
-  --panel:#ffffff; 
-  --muted:#64748b; 
-  --text:#0b1020;
-  --accent:#2563eb; 
-  --accent-2:#db2777; 
-  --ring:rgba(37,99,235,.35); 
-}
-[data-theme="dark"] {
-  --card-bg: #1e1e1e;
-  --text-color: #f0f0f0;
-  --accent-color: #ff4d4d;
+  color:  #f7f8fb;
+  background-color: #0b1020; 
 }
 
-
-[data-theme="dark"] .todocard{
-  border: 2px solid var(--muted);
-}
 
 body {
   margin: 0;
@@ -50,11 +19,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow: hidden;
-
-  /* background: radial-gradient(1100px 500px at 10% -10%, rgba(124,58,237,.25),transparent 60%),
-              radial-gradient(1000px 600px at 110% 10%, rgba(6,182,212,18), transparent 60%),
-              var(--bg); */
-  /* color: var(--text); */
 }
 
 h1 {
@@ -81,21 +45,23 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* 
+
 input,textarea,select{
   background: rgba(255,255,255,.03);
   color:var(--text); 
 }
-
 input:focus, textarea:focus, select:focus { 
   border-color: var(--accent); 
   box-shadow: 0 0 06px var(--ring); 
-} */
+}
+option{
+  color: var(--panel);
+}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f7f8fb;
   }
   button {
     background-color: #f9f9f9;

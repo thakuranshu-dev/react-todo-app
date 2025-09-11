@@ -25,15 +25,22 @@ function App() {
     setEditableIdx(index);
   };
 
+  const toggleTheme = () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  };
+  useEffect(()=>(
+    document.documentElement.setAttribute('data-theme', theme)
+  ),[theme]);
+
+
   return (
     <>
       <h1>React To-Do App</h1>
-      <div className='themes'>
-        <select name="theme" id="theme">
-          <option value="theme-dark">Dark</option>
-          <option value="theme-light">Light</option>
-          <option value="theme-dusk">Dusk</option>
-          <option value="theme-ocean">Ocean</option>
+      <div className='themeSelector'>
+        <select name="theme" id="theme" value={theme} onChange={(e)=>setTheme(e.target.value)}>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
         </select>
       </div>
       <div className="mainContainer">
