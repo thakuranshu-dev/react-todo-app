@@ -16,7 +16,7 @@ function TodoCard({sr, todo, onEdit, handleDelete, onChecked}){
 
           <button className={styles.actionBtn}
           style={{backgroundColor:"#fff", color:"#ef4444"}}
-          onClick={onEdit}
+          onClick={()=>onEdit(todo, sr)}
           >Edit</button>
 
           <button className={styles.actionBtn}

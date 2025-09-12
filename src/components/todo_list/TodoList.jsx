@@ -4,7 +4,7 @@ import {TodoCard} from '../todo_card/TodoCard';
 import { SearchBar } from '../../utils/search_todo/SeacrhTodo';
 import {FilterTodo} from '../../utils/filter_todo/FilterTodo';
 
-function TodoList( {todos, setTodos}){
+function TodoList( {todos, setTodos, handleEdit}){
   const [_search, setSearch] = useState('');
   const [filters, setFilters] = useState('');
   const [todoList, setTodoList] = useState([]);
@@ -19,20 +19,6 @@ function TodoList( {todos, setTodos}){
     updated[index].status = updated[index].status === 0 ? 1 : 0;
     setTodos(updated);
   };
-  // useEffect(()=>{
-  //   console.log("Filter:", filters)
-  //   setTodoList(()=>{
-  //     if (filters === "All" || filters === "")
-  //       return todos;
-  //     else {
-  //       if(filters === 'High' || filters === 'Low' || filters === 'Medium')
-  //         return todos.filter(todo => todo.priority === filters);
-  //       else if(filters === 'Stressed')
-  //         return todos.filter(todo=> getStress(todo) === 0);
-  //     }
-  //   })
-  //   console.log(todoList)
-  // },[filters])
 
   useEffect(() => {
     let filtered = [...todos];
@@ -43,6 +29,8 @@ function TodoList( {todos, setTodos}){
         filtered = filtered.filter(todo => todo.priority === filters);
       else if (filters === "Completed")
         filtered = filtered.filter(todo => todo.status === 0);
+      else if (filters === "Pending")
+        filtered = filtered.filter(todo => todo.status === 1);
     }
 
     // Apply search
@@ -52,6 +40,13 @@ function TodoList( {todos, setTodos}){
         todo.content.toLowerCase().includes(searchLower)
       );
     }
+
+    const priorityOrder = {
+      High: 1,
+      Medium: 2,
+      Low: 3
+    };
+    filtered.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
 
     setTodoList(filtered);
   }, [filters, _search, todos]);
@@ -65,8 +60,8 @@ function TodoList( {todos, setTodos}){
 
       <div className={styles.todolist}>
         {Array.isArray(todoList) && todoList.length > 0 ? (todoList.map((todo, idx)=>(
-          <TodoCard key={idx} sr={idx} todo={todo}  handleDelete={deleteTodo} onChecked={onChecked} />
-        ))) : <p>No saved ToDo found.</p>}
+          <TodoCard key={idx} sr={idx} todo={todo} onEdit={handleEdit} handleDelete={deleteTodo} onChecked={onChecked} />
+        ))) : <p>No saved ToDo found 😐</p>}
       </div>
     </div>
   )

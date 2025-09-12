@@ -32,16 +32,19 @@ function TodoCreate({editTodo,editableIdx, todos, setTodos, setEditTodo, setEdit
       }
 
       setTodos(updatedTodos);
-      setEditTodo(null); // reset edit mode
+      setEditTodo(null); 
       setEditableIdx(null);
     }
   }
 
   useEffect(() => {
     if (editTodo) 
-      setContent(editTodo.content);
+      setContent(editTodo.content ?? content);
       setPriority(editTodo?.priority ?? priority);
+      
   }, [editTodo]);
+
+  const handleChange = (e)=> setContent(e.target.value)
 
   return(
     <div className={styles.inputWrapper}>
@@ -49,7 +52,7 @@ function TodoCreate({editTodo,editableIdx, todos, setTodos, setEditTodo, setEdit
         <textarea placeholder="Enter task here..."
         className={styles.todoContent}
         value={content}
-        onChange={(e)=>setContent(e.target.value)}
+        onChange={(e)=>handleChange(e)}
         ></textarea>
         <select name="priority" 
         value={editTodo != null ? editTodo.priority : priority}

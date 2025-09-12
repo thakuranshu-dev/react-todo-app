@@ -22,14 +22,11 @@ function App() {
   },[todos])
 
   const handleEdit = (todo, index) => {
+    // console.log("Editable:", todo);
     setEditTodo(todo);
     setEditableIdx(index);
   };
 
-  const toggleTheme = () => {
-    const current = document.documentElement.getAttribute("data-theme");
-    document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-  };
   useEffect(()=>(
     document.documentElement.setAttribute('data-theme', theme)
   ),[theme]);
@@ -66,8 +63,9 @@ function App() {
         </div>}
         <div className="col_2"
         style={!showCreate?{width:"100%"}:{width:"calc(100% - 350px)"}}>
+
           {Array.isArray(todos) && todos.length > 0 ?
-            <TodoList todos={todos} setTodos={setTodos}/> :
+            <TodoList todos={todos} setTodos={setTodos} handleEdit={handleEdit} /> :
             <p>No Todos saved</p>
           }
         </div>
