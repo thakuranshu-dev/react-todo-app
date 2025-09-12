@@ -37,13 +37,15 @@ function App() {
 
   return (
     <>
-      <h1>React To-Do App</h1>
-      <button
+      <h1 >React To-Do App</h1>
+      <i 
       onClick={() => setShowCreate(prev => !prev)}
       className="toggleCreateBtn"
+      style={{left: !showCreate ? "10px" : "310px", color: theme === 'dark'? "white" : "black"}}
+      aria-readonly="true"
       >
-        {showCreate ? "Hide Editor" : "Show Editor"}
-      </button>
+        {showCreate ? <img src={"./menu.png"} alt="Open sidebar" /> : <img src='./menu_open.png' alt="Close sidebar" height={'32px'} width={'32px'}/> }
+      </i>
 
       <div className='themeSelector'>
         <select name="theme" id="theme" value={theme} onChange={(e)=>setTheme(e.target.value)}>

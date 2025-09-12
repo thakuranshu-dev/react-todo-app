@@ -25,6 +25,7 @@
   display: block;
   background-color: var(--bg);
   color: var(--text);
+  transition: color, background-color 1s;
 }
 .themeSelector{
   position: fixed;
@@ -74,6 +75,21 @@ select#theme{
 
 .toggleCreateBtn{
   margin-bottom: 10px;
+}
+
+.toggleCreateBtn{
+  position: absolute;
+  top: 70px;
+  left: 300px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+button.toggleCreateBtn{
+  appearance: none;
 }
 
 ::-webkit-scrollbar{

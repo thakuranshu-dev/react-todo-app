@@ -30,6 +30,7 @@
   box-shadow: var(--shadow);
   background-color: var(--panel);
   color: var(--text);
+  transition: color, background-color 1s;
 }
 
 .todoHeader{
