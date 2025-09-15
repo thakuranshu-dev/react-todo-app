@@ -1,6 +1,6 @@
 .searchWrapper{
   display: inline;
-  width: 280px;
+  width: 300px;
   height: 100%;
   outline:2px solid seagreen;
   border-radius: 4px;
@@ -8,17 +8,15 @@
 .searchForm{
   all: unset;
   height: 100%;
-  width: 300px;
+  width: 100%;
   display: inline-flex;
 }
-.searchForm:focus{
-  background-color: #7fffd464;
-}
 .searchBar{
-  height:100%;
   all:unset;
+  height:100%;
+  width: 100%;
 }
 
-.searchBtn:focus{
+/* .searchBtn:focus{
   background-color: #7fffd464;
-}
+} */

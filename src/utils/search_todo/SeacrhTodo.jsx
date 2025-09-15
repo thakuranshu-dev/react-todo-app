@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './searchtodo.module.css';
 function SearchBar({setSearch}){
   const [searchInput, setSearchInput] = useState('');
@@ -10,6 +10,15 @@ function SearchBar({setSearch}){
   const handleClick = ()=> {
     setSearch(searchInput) 
   };
+
+  useEffect(()=>{
+    const delayDebounce = setTimeout(()=>{
+      setSearch(searchInput);
+    }, 1000);
+    
+    return ()=> clearTimeout(delayDebounce);
+  },  [searchInput, setSearch]);
+
 
   return(
     <div className={styles.searchWrapper}>
@@ -23,11 +32,11 @@ function SearchBar({setSearch}){
         onChange={onInputChange} 
         />
 
-        <button 
+        {/* <button 
         type="button" 
         className={styles.searchBtn} 
         onClick={handleClick}
-        >Search</button>
+        >Search</button> */}
 
     </form>
     </div>

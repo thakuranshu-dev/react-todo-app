@@ -27,11 +27,6 @@
   color: var(--text);
   transition: color, background-color 1s;
 }
-.themeSelector{
-  position: fixed;
-  top: 2rem;
-  right: 1rem;
-}
 
 [data-theme="light"] option{
   background-color: var(--text);
@@ -42,6 +37,7 @@
 }
 button{
   background-color: var(--panel);
+  transition: all 0.3s ease;
 }
 button:focus{
   background-color: var(--panel);
@@ -90,6 +86,24 @@ select#theme{
 }
 button.toggleCreateBtn{
   appearance: none;
+}
+
+.theme-btn{
+  position: fixed;
+  height: 40px;
+  width: 80px;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  padding: 0 5px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.theme-btn img{
+  height: 35px;
+  width: 35px;
 }
 
 ::-webkit-scrollbar{

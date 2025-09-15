@@ -43,13 +43,17 @@ function App() {
       >
         {showCreate ? <img src={"./menu.png"} alt="Open sidebar" /> : <img src='./menu_open.png' alt="Close sidebar" height={'32px'} width={'32px'}/> }
       </i>
-
-      <div className='themeSelector'>
-        <select name="theme" id="theme" value={theme} onChange={(e)=>setTheme(e.target.value)}>
-          <option value="dark">Dark</option>
-          <option value="light">Light</option>
-        </select>
-      </div>
+      
+      <button type="button"
+      className='theme-btn'
+      onClick={()=>setTheme(theme==="light"?"dark":"light")}
+      style={theme==='light'?{justifyContent: "start"}: {justifyContent:"end"}}
+      >{theme === 'dark' ?
+        <img src="https://img.icons8.com/?size=100&id=nNtT9r4dDsaU&format=png&color=000000" alt="Dark mode" />:
+          <img src="https://img.icons8.com/?size=100&id=15352&format=png&color=000000" alt="Light mode"/> 
+      }
+      
+      </button>
       <div className="mainContainer">
         {showCreate && 
         <div className="col_1">
